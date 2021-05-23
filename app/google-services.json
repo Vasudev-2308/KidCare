@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "6136379331",
+    "project_id": "kidscare-f7fc2",
+    "storage_bucket": "kidscare-f7fc2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:6136379331:android:114ab841b423147d85ef76",
+        "android_client_info": {
+          "package_name": "com.example.kidcare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "6136379331-gaavttlmq4bkkh9g13jck2a4sdfcsuoe.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.kidcare",
+            "certificate_hash": "58ac0a9fb68fc1280cf304aa6f59e61d24591beb"
+          }
+        },
+        {
+          "client_id": "6136379331-hk51j1jmkhcj57o8cs6iqetppjtbkl62.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWVd0HM-81-xYrRJbWBC66HRG9ebmepXA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "6136379331-hk51j1jmkhcj57o8cs6iqetppjtbkl62.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
