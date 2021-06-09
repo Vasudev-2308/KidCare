@@ -8,10 +8,10 @@ public class Admin {
     public Admin(){
 
     }
-    public Admin(String fullname,String admisnno,String emailad){
+    public Admin(String fullname,String staffid,String emailad){
 
         this.fullname=fullname;
-        this.staffid = admisnno;
+        this.staffid = staffid;
         this.emailad = emailad;
     }
 }

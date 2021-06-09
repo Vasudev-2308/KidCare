@@ -104,7 +104,7 @@ public class ParentRegisterActivity extends AppCompatActivity {
         mAuth.createUserWithEmailAndPassword(emil,pswd)
                 .addOnCompleteListener(task -> {
                     if(task.isSuccessful()){
-                        User user = new User(nam,ageval,dateob,emil);
+                        Parent user = new Parent(nam,ageval,dateob,emil);
                         FirebaseDatabase.getInstance().getReference("Parent")
                                 .child(mAuth.getCurrentUser().getUid())
                                 .setValue(user).addOnCompleteListener(task1 -> {

@@ -16,11 +16,12 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.auth.User;
 
 public class AdminRegister extends AppCompatActivity {
     FirebaseAuth mAuth;
     TextView kidscare, login;
-    EditText name, age, staff_id, email, password;
+    EditText name, staff_id, email, password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +30,7 @@ public class AdminRegister extends AppCompatActivity {
 
         name = findViewById(R.id.name);
 
-        staff_id = findViewById(R.id.dob);
+        staff_id = findViewById(R.id.staff_id);
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         kidscare = findViewById(R.id.kidcare);
@@ -59,7 +60,7 @@ public class AdminRegister extends AppCompatActivity {
 
     private void registerUser() {
         String nam = name.getText().toString().trim();
-        String staffid = staff_id.getText().toString().toUpperCase().trim();
+        String staffid = staff_id.getText().toString().trim();
         String emil = email.getText().toString();
         String pswd = password.getText().toString();
 
