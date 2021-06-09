@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/registerbg"
-    tools:context=".RegisterActivity">
-
+    tools:context=".AdminRegister">
     <TextView
 
         android:id="@+id/kidcare"
@@ -24,13 +23,12 @@
 
     </TextView>
 
-
     <TextView
 
         android:id="@+id/kidcare2"
         android:layout_width="245dp"
         android:layout_height="45dp"
-        android:text="STUDENT"
+        android:text="ADMIN"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="23sp"
@@ -38,7 +36,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.177">
+        app:layout_constraintVertical_bias="0.208">
 
     </TextView>
 
@@ -48,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:background="@drawable/roundedinputarea"
-        android:hint="Name"
+        android:hint="Staff Name"
         android:inputType="text"
         android:padding="15dp"
         android:textColor="@color/black"
@@ -56,23 +54,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.279" />
-
-    <EditText
-        android:id="@+id/dob"
-        android:layout_width="339dp"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:background="@drawable/roundedinputarea"
-        android:hint="Admission Number"
-        android:inputType="textCapWords"
-        android:padding="15dp"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.484" />
+        app:layout_constraintVertical_bias="0.307" />
 
     <EditText
         android:id="@+id/email"
@@ -88,7 +70,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.595" />
+        app:layout_constraintVertical_bias="0.558" />
 
     <EditText
         android:id="@+id/password"
@@ -105,15 +87,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.703" />
+        app:layout_constraintVertical_bias="0.673" />
 
     <EditText
-        android:id="@+id/age"
+        android:id="@+id/staff_id"
         android:layout_width="339dp"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:background="@drawable/roundedinputarea"
-        android:hint="Class"
+        android:hint="Staff ID"
         android:inputType="number"
         android:padding="15dp"
         android:textColor="@color/black"
@@ -122,7 +104,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.379" />
+        app:layout_constraintVertical_bias="0.434" />
 
     <Button
         android:id="@+id/register"
@@ -150,4 +132,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.91" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

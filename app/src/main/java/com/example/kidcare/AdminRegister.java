@@ -1,6 +1,5 @@
 package com.example.kidcare;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
@@ -14,28 +13,23 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
-import org.jetbrains.annotations.NotNull;
-
-public class RegisterActivity extends AppCompatActivity {
-    FirebaseAuth mAuth ;
-    Button register;
+public class AdminRegister extends AppCompatActivity {
+    FirebaseAuth mAuth;
     TextView kidscare, login;
-    EditText name,age,dob,email,password;
+    EditText name, age, staff_id, email, password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.activity_admin_register);
+        Button register;
+
         name = findViewById(R.id.name);
-        age = findViewById(R.id.age);
-        dob = findViewById(R.id.dob);
+
+        staff_id = findViewById(R.id.dob);
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         kidscare = findViewById(R.id.kidcare);
@@ -48,7 +42,7 @@ public class RegisterActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
+                Intent intent = new Intent(AdminRegister.this, LoginActivity.class);
                 startActivity(intent);
             }
         });
@@ -63,12 +57,9 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
-
-
-    private void registerUser(){
+    private void registerUser() {
         String nam = name.getText().toString().trim();
-        String ageval = age.getText().toString().trim();
-        String dateob = dob.getText().toString().toUpperCase().trim();
+        String staffid = staff_id.getText().toString().toUpperCase().trim();
         String emil = email.getText().toString();
         String pswd = password.getText().toString();
 
@@ -77,14 +68,9 @@ public class RegisterActivity extends AppCompatActivity {
             name.requestFocus();
             return;
         }
-        if(ageval.isEmpty()){
-            age.setError("Please Enter A Class");
-            age.requestFocus();
-            return;
-        }
-        if(dateob.isEmpty()){
-            dob.setError("Please Enter your Admission Number");
-            dob.requestFocus();
+        if(staffid.isEmpty()){
+            staff_id.setError("Please Enter your Staff ID");
+            staff_id.requestFocus();
             return;
         }
         if(emil.isEmpty()){
@@ -108,25 +94,24 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
 
-            mAuth.createUserWithEmailAndPassword(emil,pswd)
-                    .addOnCompleteListener(task -> {
-                        if(task.isSuccessful()){
-                            User user = new User(nam,ageval,dateob,emil);
-                            FirebaseDatabase.getInstance().getReference("Student")
-                                    .child(mAuth.getCurrentUser().getUid())
-                                    .setValue(user).addOnCompleteListener(task1 -> {
-                                        if(task1.isSuccessful()){
-                                            Intent intent = new Intent(RegisterActivity.this,Intermediate.class);
-                                            startActivity(intent);
-                                        }else {
-                                            Toast.makeText(this,"An Error Occurred, Please Try Again",Toast.LENGTH_SHORT).show();
-                                            startActivity(new Intent(RegisterActivity.this,StartActivity.class));
-                                        }
-                                    });
-                        }
-                        else {
-                            startActivity(new Intent(RegisterActivity.this,StartActivity.class));
-                        }
-                    });
+        mAuth.createUserWithEmailAndPassword(emil,pswd)
+                .addOnCompleteListener(task -> {
+                    if(task.isSuccessful()){
+                        Admin user = new Admin(nam,staffid,emil);
+                        FirebaseDatabase.getInstance().getReference("Admin")
+                                .child(mAuth.getCurrentUser().getUid())
+                                .setValue(user).addOnCompleteListener(task1 -> {
+                            if(task1.isSuccessful()){
+                                Intent intent = new Intent(AdminRegister.this,Intermediate.class);
+                                startActivity(intent);
+                            }else {
+                                startActivity(new Intent(AdminRegister.this,StartActivity.class));
+                            }
+                        });
+                    }
+                    else {
+                        startActivity(new Intent(AdminRegister.this,StartActivity.class));
+                    }
+                });
     }
-}
+    }
